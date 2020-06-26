@@ -1,12 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-function NavBar() {
-
-    return (
-            <div className="navbar">
-               Holi
-            </div>
+function Navbar(props) {
+    return(
+        <div>
+            <h1>Hola soy la Nav bar jaj</h1>
+        </div>
     )
 }
 
-export default NavBar;
+export default Navbar
