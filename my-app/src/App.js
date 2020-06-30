@@ -1,16 +1,20 @@
 import React from 'react';
 import './App.css';
-import NewOrder from './pages/NewOrder'
+// import NewOrder from './pages/NewOrder'
+import BMenu from './components/Navbar/BMenu';
+import Navbar from './components/Navbar';
 
-import breakfastData from '../src/data/breakfastData'
+
+// import breakfastData from '../src/data/breakfastData'
 
 function App() {
   return (
-    <NewOrder /> 
-  )
-<<<<<<< HEAD
-}
-=======
->>>>>>> 339d706a68150c32ffbac5a76eeb7b7715a65588
+    <div>
+    <Navbar />
+    <BMenu />
+    </div>
+    // <NewOrder /> 
+    )
+  }
 
 export default App;
