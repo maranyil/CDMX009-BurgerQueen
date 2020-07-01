@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 // import NewOrder from './pages/NewOrder'
 import BMenu from './components/Navbar/BMenu';
 import Navbar from './components/Navbar';

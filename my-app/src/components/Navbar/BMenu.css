@@ -1,9 +1,8 @@
 
-.menuToggle
-{
+.menuToggle {
   display: block;
   position: relative;
-  top: -50px;
+  top: -58px;
   left: 35px;
   
   z-index: 1;
@@ -12,22 +11,19 @@
   user-select: none;
 }
 
-.menuToggle a
-{
+.menuToggle a {
   text-decoration: none;
   color: #232323;
   
   transition: color 0.3s ease;
 }
 
-.menuToggle a:hover
-{
+.menuToggle a:hover {
   color: #ffffff;
 }
 
 
-.menuToggle input
-{
+.menuToggle input {
   display: block;
   width: 50px;
   height: 42px;
@@ -44,8 +40,7 @@
 }
 
 /* Just a quick hamburger */
-.menuToggle span
-{
+.menuToggle span {
   display: block;
   width: 33px;
   height: 4px;
@@ -99,12 +94,12 @@ into a crossmark. */
 }
 
 /* Make this absolute at the top left of the screen */
-.menu
-{
+.menu {
   position: absolute;
-  width: 200px;
+  width: 230px;
+  height: 768px;
   margin: -100px 0 0 -50px;
-  padding: 20px;
+  padding: 30px;
   padding-top: 125px;
   text-align: center;
   
@@ -119,10 +114,13 @@ into a crossmark. */
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
-.menu li
-{
-  padding: 10px 0;
-  font-size: 22px;
+.menu h1 {
+  font-size: 35px;
+}
+
+.menu li {
+  padding: 20px 0;
+  font-size: 30px;
 }
 
 /* slide it from the left */
