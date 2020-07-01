@@ -1,7 +1,8 @@
-import React from 'react';
-// import NewOrder from './pages/NewOrder'
-import BMenu from './components/Navbar/BMenu';
-import Navbar from './components/Navbar';
+import React from 'react'
+
+import NewOrder from './pages/NewOrder'
+//import BMenu from './components/Navbar/BMenu'
+//import Navbar from './components/Navbar'
 
 
 // import breakfastData from '../src/data/breakfastData'
@@ -9,10 +10,8 @@ import Navbar from './components/Navbar';
 function App() {
   return (
     <div>
-    <Navbar />
-    <BMenu />
-    </div>
-    // <NewOrder /> 
+      <NewOrder /> 
+    </div> 
     )
   }
 
