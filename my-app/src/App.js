@@ -1,8 +1,6 @@
 import React from 'react';
-import './App.css';
-import NewOrder from './pages/NewOrder'
 
-import breakfastData from '../src/data/breakfastData'
+import NewOrder from './pages/NewOrder'
 
 function App() {
   return (
