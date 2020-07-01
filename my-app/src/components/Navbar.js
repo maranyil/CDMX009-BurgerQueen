@@ -1,9 +1,10 @@
 import React from 'react'
+import './Navbar/Navbar.css'
 
 function Navbar(props) {
     return(
-        <div>
-            <h1>Hola soy la Nav bar jaj</h1>
+        <div className= "topbar">
+            <h1>Burguer Queen</h1>
         </div>
     )
 }
