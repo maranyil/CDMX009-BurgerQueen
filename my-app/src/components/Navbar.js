@@ -3,8 +3,8 @@ import './Navbar/Navbar.css'
 
 function Navbar(props) {
     return(
-        <div>
-            <h1>-</h1>
+        <div className= "topbar">
+            <h1>Burguer Queen</h1>
         </div>
     )
 }
