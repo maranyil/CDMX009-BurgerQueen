@@ -1,11 +1,10 @@
 import React from 'react'
 
-function ToggleMenu() {
-    
+function ToggleMenu({ tab, setTab }) {
     return (
     <div>
-        <button>Desayuno</button>
-        <button>Comida</button>
+        <button onClick={() => setTab('breakfast')} style={ { backgroundColor: tab === 'breakfast' ? 'gray' : 'blue' } }>Desayuno</button>
+        <button onClick={() => setTab('restOttd')} style={ { backgroundColor: tab === 'restOttd' ? 'gray' : 'blue' } }>Comida</button>
     </div>
     )
 }

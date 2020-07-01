@@ -4,7 +4,8 @@
     flex-wrap: wrap;
     position: relative; 
     border-radius: 20px;
+    margin-left: 50px; 
     width: 350px; 
-    background-color: pink;
+    background-color: #FFFCFC;
     padding: 20px; 
 }

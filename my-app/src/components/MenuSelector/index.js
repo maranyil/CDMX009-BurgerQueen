@@ -7,8 +7,8 @@ import './index.css'
 
 function MenuSelector() {
 
-    let menu = true 
     const [order, setOrder] = useState([])
+    const [tab, setTab] = useState('breakfast')
 
     const addProduct = (product) => {
         const orderTemp = [product, ...order];
@@ -25,8 +25,8 @@ function MenuSelector() {
 
     return(
     <>
-        <ToggleMenu />
-        {menu === false ? <div className="menuContainer">{breakfastComponents}</div> :
+        <ToggleMenu setTab={setTab} tab={tab}/>
+        {tab === 'breakfast' ? <div className="menuContainer">{breakfastComponents}</div> :
         <div className="menuContainer">{restOtdComponents}</div>
         }
       
