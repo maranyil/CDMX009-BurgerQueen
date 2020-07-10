@@ -1,46 +1,53 @@
+import wata from '../img/wata.webp'
+import soda from '../img/soda.webp'
+import hamb from '../img/simple-hamb.webp'
+import doubleHamb from '../img/double-hamb.webp'
+import fries from '../img/fries.webp'
+import onionRings from '../img/onion-rings.webp'
+
 const foodData = [
     {
         id: 5,
-        url: "https://bit.ly/3ez8CsG",
-        item: "Hamb simple",
-        price: 5,
+        url: wata,
+        item: "Agua",
+        price: 7,
         tag: "drink"
     },
     {
         id: 6,
-        url: "https://bit.ly/37ZX7HX",
-        item: "Hamb doble",
+        url: soda,
+        item: "Soda",
         price: 7,
         tag: "drink"
     },
     {
         id: 7,
-        url: "https://bit.ly/3ez8CsG",
-        item: "Papas fritas",
-        price: 10,
-        tag: "drink"
+        url: hamb,
+        item: "Hamb",
+        price: 5,
+        tag: "food"
     },
     {
         id: 8,
-        url: "https://bit.ly/3ez8CsG",
-        item: "Aros de cebolla",
+        url: doubleHamb,
+        item: "Hamb doble",
         price: 7,
         tag: "food"
     },
     {
         id: 9,
-        url: "https://bit.ly/3ez8CsG",
-        item: "Agua 500ml",
-        price: 7,
-        tag: "food"
+        url: fries,
+        item: "Papas fritas",
+        price: 10,
+        tag: "foo"
     },
     {
         id: 10,
-        url: "https://bit.ly/3ez8CsG",
-        item: "Gaseosa 500ml",
+        url: onionRings,
+        item: "Aros de cebolla",
         price: 7,
         tag: "food"
-    },
+    }
 ]
 
 export default foodData
