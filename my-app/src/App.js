@@ -1,5 +1,5 @@
 import React from 'react';
-// import NewOrder from './pages/NewOrder'
+import NewOrder from './pages/NewOrder'
 import BMenu from './components/Navbar/BMenu';
 import Navbar from './components/Navbar';
 
@@ -11,6 +11,7 @@ function App() {
     <div>
     <Navbar />
     <BMenu />
+    <NewOrder />
     </div>
     // <NewOrder /> 
     )

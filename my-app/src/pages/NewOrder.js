@@ -1,17 +1,14 @@
 import React from 'react'
 
 import Navbar from '../components/Navbar'
-
-import Footer from '../components/Footer'
+// import BMenu  from '../components/Navbar/BMenu'
 import MenuSelector from '../components/MenuSelector'
 
 
 function NewOrder() {
     return(
     <div>
-        <Navbar />
         <MenuSelector />
-        <Footer /> 
     </div> 
     )
 }
