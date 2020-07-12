@@ -2,7 +2,7 @@ import React from 'react'
 import './MenuElement.css'
 
 function MenuElement (props) {
-    const {url, item, price, tag} = props.data
+    const {url, item, price, tag, id} = props.data
     const addProduct = props.addProduct
     return(
         <div className={tag === "drink" ? "beverage" : "meal"}
