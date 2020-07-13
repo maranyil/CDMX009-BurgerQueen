@@ -6,7 +6,7 @@ function MenuElement (props) {
     const addProduct = props.addProduct
     return(
         <div className={tag === "drink" ? "beverage" : "meal"}
-            onClick={() => addProduct(props.data)}
+            onClick={() => addProduct(props.data.price)}
         >
             <img src={url} alt={item}></img>
             <h2>{item}</h2>
