@@ -4,20 +4,21 @@ import hamb from '../img/simple-hamb.webp'
 import doubleHamb from '../img/double-hamb.webp'
 import fries from '../img/fries.webp'
 import onionRings from '../img/onion-rings.webp'
+import { v4 as uuidv4 } from 'uuid'
 
 const foodData = [
     {
-        id: 5,
+        id: uuidv4(),
         url: wata,
         item: "Agua",
-        price: 7,
+        price: 5,
         tag: "drink"
     },
     {
-        id: 6,
+        id: uuidv4(),
         url: soda,
         item: "Soda",
-        price: 7,
+        price: 6,
         tag: "drink"
     },
     {
@@ -28,21 +29,21 @@ const foodData = [
         tag: "food"
     },
     {
-        id: 8,
+        id: uuidv4(),
         url: doubleHamb,
         item: "Hamb doble",
         price: 7,
         tag: "food"
     },
     {
-        id: 9,
+        id: uuidv4(),
         url: fries,
         item: "Papas fritas",
-        price: 10,
+        price: uuidv4(),
         tag: "foo"
     },
     {
-        id: 10,
+        id: uuidv4(),
         url: onionRings,
         item: "Aros de cebolla",
         price: 7,
