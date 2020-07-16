@@ -11,9 +11,6 @@ function MenuSelector() {
 
     const [order, setOrder] = useState([])
     const [tab, setTab] = useState('breakfast')
-    const [total, setTotal] = useState([
-
-    ])
 
     const addProduct = (product) => {
         const orderTemp = [{
@@ -27,10 +24,6 @@ function MenuSelector() {
     const deleteItem = (id) => {
         setOrder(order.filter(order => order.id !== id ))
         console.log('me voy a borrar noo' + id)
-    }
-
-    const addTotal = (cost, quantity) => {
-
     }
 
     const restOtdComponents = restOfTheDayData.map(elem =>
@@ -57,7 +50,6 @@ function MenuSelector() {
 
     const orderTest = order.map(elem =>
         <OrderItem
-
             item={elem.item} 
             price={elem.price} 
             key={uuidv4()} 
@@ -72,16 +64,17 @@ function MenuSelector() {
     }, 0)
 
     return(
-    <>
-        <ToggleMenu setTab={setTab} tab={tab}/>
+    <div className="menuSelectorContainer">
+        <ToggleMenu className="toggle-btn" setTab={setTab} tab={tab}/>
         {tab === 'breakfast' ? <div className="menuContainer">{breakfastComponents}</div> :
         <div className="menuContainer">{restOtdComponents}</div>
         }
 
-       {orderTest}
-
-       <p>{totalCuenta}</p>
-    </> 
+        <div className="orderContainer">
+        {orderTest}
+        <div>${totalCuenta}.00</div>
+        </div>
+    </div> 
     )
 }
 

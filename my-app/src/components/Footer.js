@@ -3,7 +3,7 @@ import React from 'react'
 function Footer(props) {
     return(
         <div>
-            <h1>-</h1>
+            <p>Burger Queen 2020. Fer y Mara.</p>
         </div>
     )
 }

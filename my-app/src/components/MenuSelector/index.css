@@ -1,11 +1,38 @@
+.menuSelectorContainer{
+    display: grid; 
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 6fr; 
+    grid-template-areas: 
+    "toggle order"
+    "menu order"; 
+    
+    justify-items: center;
+}
+
+.toggle-btn{
+    display: flex; 
+    justify-content: center;
+    align-content: center;
+    grid-area: toggle; 
+}
 .menuContainer{
 
     display: flex;
     flex-wrap: wrap;
+    grid-area: menu; 
     position: relative; 
     border-radius: 20px;
-    margin-left: 50px; 
     width: 350px; 
     background-color: #FFFCFC;
     padding: 20px; 
+
 }
+
+.orderContainer{
+    background-color: #FFCF87; 
+    grid-area: order; 
+    
+
+}
+
+

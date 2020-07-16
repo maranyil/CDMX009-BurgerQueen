@@ -9,9 +9,9 @@ import NewOrder from './pages/NewOrder'
 
 function App() {
   return (
-    <div>
+    <>
       <NewOrder /> 
-    </div> 
+    </> 
     )
   }
 
