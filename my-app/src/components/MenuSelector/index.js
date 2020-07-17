@@ -4,6 +4,7 @@ import restOfTheDayData from '../../data/restOfTheDayData'
 import MenuElement from './MenuElement'
 import ToggleMenu from './ToggleMenu'
 import OrderItem from './OrderItem'
+import Button from '../Button'
 import { v4 as uuidv4 } from 'uuid'
 import './index.css'
 
@@ -18,7 +19,8 @@ function MenuSelector() {
             quantity: 1,
         }, ...order];
         setOrder(orderTemp)
-        console.log(product)
+
+        console.log(order)
     }
 
     const deleteItem = (id) => {
@@ -36,7 +38,7 @@ function MenuSelector() {
 
     const addQuantity = (id, quantity) => {
         const newOrder = order.map((item) => {
-            if (item.id === id && quantity >= 1) {
+            if (item.id === id) {
                 return {
                     ...item,
                     quantity,
@@ -48,8 +50,9 @@ function MenuSelector() {
         setOrder(newOrder)
     }
 
-    const orderTest = order.map(elem =>
+    const fullOrder = order.map(elem =>
         <OrderItem
+
             item={elem.item} 
             price={elem.price} 
             key={uuidv4()} 
@@ -59,9 +62,10 @@ function MenuSelector() {
             addQuantity={addQuantity} />
     )
 
-    const totalCuenta = order.reduce((result, elem) => {
-        return result + elem.price * elem.quantity
+    const addTotal = order.reduce((result, item) => {
+        return result + item.price * item.quantity
     }, 0)
+
 
     return(
     <div className="menuSelectorContainer">
@@ -71,8 +75,14 @@ function MenuSelector() {
         }
 
         <div className="orderContainer">
-        {orderTest}
-        <div>${totalCuenta}.00</div>
+        <h1>Mesa</h1>
+        {fullOrder}
+        <p className="total">Total: ${addTotal}.00</p>
+        <div className="center"><Button 
+            color={'yellow'}
+            title={"Enviar a cocina"}
+        />
+        </div>
         </div>
     </div> 
     )

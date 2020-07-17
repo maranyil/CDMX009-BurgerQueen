@@ -1,10 +1,11 @@
 import React from 'react'
+import './Footer.css'
 
 function Footer(props) {
     return(
-        <div>
-            <p>Burger Queen 2020. Fer y Mara.</p>
-        </div>
+        <footer>
+            <p>Burger Queen 2020; por Fer y Mara.</p>
+        </footer>
     )
 }
 

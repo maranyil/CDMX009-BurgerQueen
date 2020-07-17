@@ -1,10 +1,21 @@
 import React from 'react'
+import './ToggleMenu.css'
 
 function ToggleMenu({ tab, setTab }) {
     return (
-    <div>
-        <button onClick={() => setTab('breakfast')} style={ { backgroundColor: tab === 'breakfast' ? 'blue' : 'gray' } }>Desayuno</button>
-        <button onClick={() => setTab('restOttd')} style={ { backgroundColor: tab === 'restOttd' ? 'blue' : 'gray' } }>Comida</button>
+    <div className="container">
+        <button 
+            className="toggle"
+            onClick={() => setTab('breakfast')}  
+            style={{ backgroundColor: tab === 'breakfast' ? '#FFF' : '#FFD89C' }}>
+            Desayuno
+        </button>
+        <button 
+            className="toggle"
+            onClick={() => setTab('restOttd')}
+            style={{ backgroundColor: tab === 'restOttd' ? '#FFF' : '#FFD89C' }}>
+            Comida
+        </button>
     </div>
     )
 }
