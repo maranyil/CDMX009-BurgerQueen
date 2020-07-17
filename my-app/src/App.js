@@ -10,9 +10,9 @@ import Navbar from './components/Navbar';
 function App() {
   return (
     <div className = "App">
+      <Router>
       <Navbar />
       <BMenu />
-      <Router>
         <Switch>
          <Route exact path = "/" />
          <Route exact path = "/new-order" component = {NewOrder}/>

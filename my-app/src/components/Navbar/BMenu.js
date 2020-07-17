@@ -21,6 +21,9 @@ function BMenu(props) {
             <Link to = "incoming">
               <li>Incoming</li>
             </Link>
+            <Link to = "ready">
+              <li>Ready</li>
+            </Link>
           </ul>
         </div>
       </nav>

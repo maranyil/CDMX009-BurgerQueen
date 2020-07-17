@@ -9,3 +9,9 @@
     vertical-align: middle;
     line-height: 100px; 
 }
+
+.topbar h1 {
+    font-size: 40px;
+    margin-top: 7px;
+    padding-top: 5px;
+}
