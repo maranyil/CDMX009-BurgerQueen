@@ -1,0 +1,39 @@
+.input-form {
+   display: table;
+   padding: 30px;
+
+   margin-left: 383px;
+   margin-right: 383px;
+   align-items: center;
+
+   height: 400px;
+   width: 600px;
+}
+
+.inputf {
+    display: table-cell;
+    vertical-align: middle;
+    margin-right: inherit;
+    margin-left: inherit;
+    margin-top: 30px;
+
+    border-radius: 30px;
+    border-style: none;
+   
+    height: 60px;
+    width: 600px;
+}
+
+.btn {
+    display: block;
+    margin-right: 200px;
+    margin-left: 200px;
+    margin-top: 30px;
+
+    background-color:  #ffb13b;
+    border-style: none;
+    border-radius: 30px;
+
+    height: 60px;
+    width: 200px;
+}
