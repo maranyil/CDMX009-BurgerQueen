@@ -2,7 +2,7 @@ import React from 'react'
 import trash from '../../img/trash.svg'
 import './OrderItem.css'
 
-function OrderItem ({item, price, id, deleteItem, addQuantity, quantity}) {
+function OrderItem ({item, price, id, deleteItem, addQuantity, quantity, totalp}) {
 
     return(
         <div className="order-list-container">   
@@ -15,6 +15,7 @@ function OrderItem ({item, price, id, deleteItem, addQuantity, quantity}) {
                 addQuantity(id, quantity)
             }}/>
             <h4>${price}.00</h4>
+            <h4>${totalp}.00</h4>
             <img 
                 src={trash} 
                 alt="delete-icon"

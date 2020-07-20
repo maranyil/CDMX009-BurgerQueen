@@ -1,9 +1,13 @@
 import React from 'react'
 import './Button.css'
 
-function Button ({title, color}) {
+function Button ({title, color, saveOrder}) {
     return(
-        <button className={color}>{title}</button>
+        <button 
+            className="yellowbtn waves-effect waves-light"
+            onClick={saveOrder}>
+                {title}
+        </button>
     )
 }
 

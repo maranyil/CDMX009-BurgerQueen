@@ -1,13 +1,11 @@
 
 import React from 'react'
-
-import Footer from '../components/Footer'
+import KitchenNotes from '../components/KitchenNotes'
 
 function IncomingOrder() {
     return(
     <div>
-        <h1> Soy una orden agaga</h1>
-        <Footer />
+        <KitchenNotes /> 
     </div> 
     )
 }

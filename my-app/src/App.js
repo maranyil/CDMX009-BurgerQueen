@@ -4,22 +4,22 @@ import NewOrder from './pages/NewOrder'
 import IncomingOrder from './pages/IncomingOrder'
 import BMenu from './components/Navbar/BMenu';
 import Navbar from './components/Navbar';
-
-// import breakfastData from '../src/data/breakfastData'
+import firebase from './firebase'
 
 function App() {
+  // const [data, setData] = useState([]);
+
   return (
     <div className = "App">
       <Router>
-      {/*<Navbar />
-      <BMenu />*/}
+      <Navbar />
+      <BMenu />
         <Switch>
          <Route exact path="/" />
-         <Route exact path="/new-order" component={NewOrder}/>
-         <Route exact path="/incoming" component={IncomingOrder}/>
+         <Route exact path="/new-order" render={() => <NewOrder />}/>
+         <Route exact path="/incoming" render={() => <IncomingOrder />}/>
         </Switch>
       </Router>
-     
     </div>
   );
 }
