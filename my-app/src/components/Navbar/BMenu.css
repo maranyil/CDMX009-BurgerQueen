@@ -1,4 +1,3 @@
-
 .menuToggle {
   display: block;
   position: relative;
@@ -96,8 +95,8 @@ into a crossmark. */
 /* Make this absolute at the top left of the screen */
 .menu {
   position: absolute;
-  width: 230px;
-  height: 768px;
+  width: 300px;
+  height: 1024px;
   margin: -100px 0 0 -50px;
   padding: 30px;
   padding-top: 125px;
