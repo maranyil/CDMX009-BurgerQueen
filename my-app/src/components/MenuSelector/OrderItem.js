@@ -1,11 +1,12 @@
 import React from 'react'
 import trash from '../../img/trash.svg'
+import './OrderItem.css'
 
-function OrderItem ({item, price, id, deleteItem, addQuantity, quantity}) {
+function OrderItem ({item, price, id, deleteItem, addQuantity, quantity, totalp}) {
 
     return(
-        <div>   
-            <h2>{item}</h2>
+        <div className="order-list-container">   
+            <h3>{item}</h3>
             <input
               type="number" min="1"
               value={quantity}
@@ -13,8 +14,14 @@ function OrderItem ({item, price, id, deleteItem, addQuantity, quantity}) {
                 const quantity = e.target.value
                 addQuantity(id, quantity)
             }}/>
-            <h2>${price}.00</h2>
-            <img src={trash} onClick={() => deleteItem(id)}/> 
+            <h4>${price}.00</h4>
+            <h4>${totalp}.00</h4>
+            <img 
+                src={trash} 
+                alt="delete-icon"
+                className="trash"
+                onClick={() => deleteItem(id)}
+            /> 
         </div>
     )
 }

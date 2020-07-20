@@ -1,11 +1,105 @@
-.menuContainer{
+*{
+    color: #170000; 
+}
 
+.toggle-btn{
+    display: flex; 
+    justify-content: center;
+    align-content: center;
+    grid-area: toggle; 
+}
+
+.items-container{
     display: flex;
     flex-wrap: wrap;
+    grid-area: menu; 
     position: relative; 
     border-radius: 20px;
-    margin-left: 50px; 
     width: 350px; 
     background-color: #FFFCFC;
-    padding: 20px; 
+    padding-left: 5px; 
+    padding-top: 10px; 
+
+}
+
+.menu-parent{
+    margin: 20px 80px 0px 80px; 
+}
+
+.container{
+    margin-bottom: 20px; 
+}
+
+.menu-container{
+    display:flex; 
+    flex-direction: column;
+    float:left;
+}
+
+.order-container{
+    float:left; 
+    margin: 0px 0px 0px 50px; 
+}
+
+.order-note{ 
+    width: 400px;
+    height: auto; 
+    border-radius: 20px; 
+    background-color: #FFCF87; 
+    grid-area: order; 
+    padding: 5px 20px 20px 20px; 
+}
+
+.total{
+    font-size: 18px; 
+    font-weight: bold; 
+    text-align: right; 
+    padding: 35px; 
+}
+
+h1{
+    font-size: 28px; 
+    text-align: center; 
+    margin-right: 10px; 
+}
+
+.center{
+    display: flex; 
+    justify-content: center;
+}
+
+.table{
+    display:flex; 
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type=number].table-number{
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: bolder;
+    width: 30px !important; 
+    height: 25px !important; 
+    font-size: 25px; 
+}
+
+.titles-container{
+    display: flex; 
+    flex-direction: row;    
+}
+
+h4.bold{
+    font-weight: bold; 
+    justify-content: center;
+}
+
+h4.prod{
+    width: 150px;  
+}
+h4.cant{
+    width: 75px; 
+}
+
+h4.unit{
+    width: 75px;  
 }

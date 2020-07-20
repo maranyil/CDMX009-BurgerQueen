@@ -5,12 +5,11 @@ import IncomingOrder from './pages/IncomingOrder'
 import Login from './pages/Login';
 import BMenu from './components/Navbar/BMenu';
 import Navbar from './components/Navbar/Navbar';
-
-
-
-// import breakfastData from '../src/data/breakfastData'
+import Navbar from './components/Navbar';
+import firebase from './firebase'
 
 function App() {
+
   return (
     <div className = "App">
        <Router>
@@ -20,9 +19,9 @@ function App() {
          <Route exact path = "/login" component = {Login}/>
          <Route exact path = "/new-order" component = {NewOrder}/>
          <Route exact path = "/incoming" component = {IncomingOrder}/>
+
         </Switch>
       </Router>
-     
     </div>
   );
 }

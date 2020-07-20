@@ -39,7 +39,7 @@ const foodData = [
         id: uuidv4(),
         url: fries,
         item: "Papas fritas",
-        price: uuidv4(),
+        price: 7,
         tag: "foo"
     },
     {
