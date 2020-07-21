@@ -10,7 +10,7 @@ function OrderItem ({item, price, id, deleteItem, addQuantity, quantity, totalp}
             <input
               type="number" min="1"
               value={quantity}
-              onChange={(e)=> {
+              onChange={ e => {
                 const quantity = e.target.value
                 addQuantity(id, quantity)
             }}/>

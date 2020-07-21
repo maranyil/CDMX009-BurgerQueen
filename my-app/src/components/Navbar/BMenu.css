@@ -21,6 +21,11 @@
   color: #ffffff;
 }
 
+.menu li:hover {
+  color: #ffffff;
+  transition-duration: .5s; 
+}
+
 
 .menuToggle input {
   display: block;

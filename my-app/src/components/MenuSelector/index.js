@@ -8,9 +8,11 @@ import Titles from './Titles'
 import Table from './Table'
 import Button from '../Button'
 import { v4 as uuidv4 } from 'uuid'
+import { db, auth } from '../../firebase'
 import './index.css'
 
 function MenuSelector() {
+
 
     const [order, setOrder] = useState([])
     const [tab, setTab] = useState('breakfast')
@@ -19,6 +21,8 @@ function MenuSelector() {
      * order []
      * order {table: 1, total: 5000, subtotal: 4000, tax: 1000, client: 'Raul', items: [{id:1, name: 'hamg 1', price: 20, quantity: 3 }]}
      */
+
+     //ads product to order
     const addProduct = (product) => {
             const orderTemp = [{
                 ...product,
@@ -53,8 +57,16 @@ function MenuSelector() {
         setOrder(newOrder)
     }
 
-    const saveOrder = () => {
-        console.log('me estoy salvando a fb')
+    const saveOrder = (e) => {
+        e.preventDefault()
+        db
+        .collection('orders')
+        .add({
+            order
+        })
+        .then(()=>{
+            alert('Pedido enviado a cocina :)')
+        })
     }
 
     const fullOrder = order.map(elem =>
@@ -91,7 +103,9 @@ function MenuSelector() {
 
         <div className="order-container">
         <div className="order-note">
-            <div className="table"><Table /></div> 
+            <div className="table">
+                <Table />
+            </div> 
             <Titles /> 
             {fullOrder}
             <p className="total">Total: ${addTotal}.00</p>
