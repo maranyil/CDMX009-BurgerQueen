@@ -12,27 +12,37 @@ import { db, auth } from '../../firebase'
 import './index.css'
 
 function MenuSelector() {
+    //  nodes 
+    const initialOrder = {
+        table: '',
+        items: [],
+        waiter: 'Keupa'
+    }
 
-
-    const [order, setOrder] = useState([])
     const [tab, setTab] = useState('breakfast')
+    const [order, setOrder] = useState(initialOrder)
 
-    /**
-     * order []
-     * order {table: 1, total: 5000, subtotal: 4000, tax: 1000, client: 'Raul', items: [{id:1, name: 'hamg 1', price: 20, quantity: 3 }]}
-     */
+    // functions 
+    // const reset = () => setOrder(intitalOrder)
+
+    const setTable = (table) => setOrder({ ...order, table})
 
      //ads product to order
-    const addProduct = (product) => {
-            const orderTemp = [{
-                ...product,
-                quantity: 1,
-            }, ...order];
-                    setOrder(orderTemp)
+    const addProduct = (product) => {        
+        setOrder({
+            ...order,
+            items: [
+                ...order.items,
+                {...product, quantity: 1}
+            ]
+        })
     }
 
     const deleteItem = (id) => {
-        setOrder(order.filter(order => order.id !== id ))
+        setOrder({
+            ...order,
+            items: order.items.filter(order => order.id !== id )            
+        })
     }
 
     const restOtdComponents = restOfTheDayData.map(elem =>
@@ -44,7 +54,7 @@ function MenuSelector() {
     )
 
     const addQuantity = (id, quantity) => {
-        const newOrder = order.map((item) => {
+        const newItems = order.items.map((item) => {
             if (item.id === id) {
                 return {
                     ...item,
@@ -54,7 +64,10 @@ function MenuSelector() {
                 return item
             }
         })
-        setOrder(newOrder)
+        setOrder({
+            ...order,
+            items: newItems,
+        })
     }
 
     const saveOrder = (e) => {
@@ -69,7 +82,7 @@ function MenuSelector() {
         })
     }
 
-    const fullOrder = order.map(elem =>
+    const fullOrder = order.items.map(elem =>
         <OrderItem
             item={elem.item} 
             price={elem.price} 
@@ -82,7 +95,7 @@ function MenuSelector() {
         />
     )
 
-    const addTotal = order.reduce((result, item) => {
+    const addTotal = order.items.reduce((result, item) => {
         return result + item.price * item.quantity
     }, 0)
 
@@ -104,7 +117,7 @@ function MenuSelector() {
         <div className="order-container">
         <div className="order-note">
             <div className="table">
-                <Table />
+                <Table setTable={setTable} />
             </div> 
             <Titles /> 
             {fullOrder}

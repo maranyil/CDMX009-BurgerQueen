@@ -1,13 +1,14 @@
 import React from 'react'
 
-function Table ({tablenum}) {
+function Table ({tablenum, setTable}) {
     return(
         <>
             <h1>Mesa</h1>
             <input className="table-number"
                 onChange={ e => {
-                    const tablenum = e.target.value; 
-                    console.log(tablenum)
+                    const table = e.target.value; 
+                    setTable(table)
+                    console.log(table)
                     } 
                 }
                 type="number" 
