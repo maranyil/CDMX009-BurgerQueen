@@ -1,9 +1,10 @@
 .input-form {
    display: table;
    padding: 30px;
+   border: solid red 3px;
 
-   margin-left: 383px;
-   margin-right: 383px;
+   margin-left: 409px;
+   margin-right: auto;
    align-items: center;
 
    height: 400px;
