@@ -5,24 +5,22 @@ import IncomingOrder from './pages/IncomingOrder'
 import Login from './pages/Login';
 import BMenu from './components/Navbar/BMenu';
 import Navbar from './components/Navbar/Navbar';
-
-
-
-// import breakfastData from '../src/data/breakfastData'
+import './firebase'
 
 function App() {
+
   return (
     <div className = "App">
        <Router>
         <Navbar />
         <BMenu />
         <Switch>
-         <Route exact path = "/login" component = {Login}/>
-         <Route exact path = "/new-order" component = {NewOrder}/>
-         <Route exact path = "/incoming" component = {IncomingOrder}/>
+         <Route exact path = "/login" render={() => <Login />}/>
+         <Route exact path = "/new-order" render={() => <NewOrder />}/>
+         <Route exact path = "/incoming" render={() => <IncomingOrder />}/>
+
         </Switch>
       </Router>
-     
     </div>
   );
 }
