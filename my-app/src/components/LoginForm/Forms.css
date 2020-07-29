@@ -18,6 +18,8 @@
     margin-left: inherit;
     margin-top: 30px;
 
+    font-size: 28px;
+
     border-radius: 30px;
     border-style: none;
    
@@ -30,6 +32,7 @@
     margin-right: 200px;
     margin-left: 200px;
     margin-top: 30px;
+    font-size: 30px;
 
     background-color:  #ffb13b;
     border-style: none;
