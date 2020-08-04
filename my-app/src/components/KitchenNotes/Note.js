@@ -47,14 +47,13 @@ function Note(){
     }
 
     let incomingOrders = incoming.map( order => {
-        // let color = Math.floor(((Date.now() - Number(order.date)) / 6000) % 60)
         let difference = Date.now() -  +order.date.toDate() // miliseconds between now and when the order was created
         let color = Math.round((difference/1000)/60)
         console.log('hora', moment(order.date.toDate()).startOf('hour').fromNow())
         console.log(color)
 
         return (
-            <div className="notes" key={order.id}>
+            <div className={color <= 10 ? "green-note" : "red-note"} key={order.id}>
                 <h2 className="table"> Mesa {order.table}</h2>
                 <p> Meserx: {order.waiter}</p>
 
@@ -69,7 +68,7 @@ function Note(){
                         )
                     })}
                     
-                <button className="green" onClick={() => {console.log(order); updateOrder(order.id)}}>Orden lista!</button>
+                <button className={color <= 10 ? "green" : "red"} onClick={() => {console.log(order); updateOrder(order.id)}}>Orden lista!</button>
             </div>
         )
     })

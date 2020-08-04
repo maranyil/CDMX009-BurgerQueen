@@ -3,16 +3,17 @@
     display: -ms-flexbox; /* Not needed if autoprefixing */
     display: flex;
     margin-left: -10px;  /* gutter size offset */
-    padding: 30px; 
+    padding: 30px 30px 30px 80px ; 
     width: auto;
   }
+  
   .my-masonry-grid_column {
     padding-left: 60px; /* gutter size */
     margin-bottom: 20px; 
     background-clip: padding-box;
   }
-   
-  .notes{ 
+
+  .green-note{ 
     width: 300px; 
     border-radius: 9px;
     text-align: center; 
@@ -21,6 +22,17 @@
     padding: 20px 0px 20px 0px; 
     margin-bottom: 30px; 
     background-color: #DDFC84; 
+}
+
+.red-note{ 
+    width: 300px; 
+    border-radius: 9px;
+    text-align: center; 
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px 20px 0px; 
+    margin-bottom: 30px; 
+    background-color: #FCA884; 
 }
 
 h2.table{
