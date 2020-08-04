@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { db, auth } from '../../firebase'
 import { v4 as uuidv4 } from 'uuid'
+import moment from 'moment'
+import Masonry from 'react-masonry-css'
 import './Note.css'
 
 function Note(){
@@ -17,7 +19,6 @@ function Note(){
             querySnapshot.forEach((doc) => {
                 docs.push({...doc.data(), id: doc.id})
             })
-            console.log(docs)
             setIncoming(docs)
         })
     } 
@@ -45,27 +46,61 @@ function Note(){
         })   
     }
 
+    let incomingOrders = incoming.map( order => {
+        // let color = Math.floor(((Date.now() - Number(order.date)) / 6000) % 60)
+        let difference = Date.now() -  +order.date.toDate() // miliseconds between now and when the order was created
+        let color = Math.round((difference/1000)/60)
+        console.log('hora', moment(order.date.toDate()).startOf('hour').fromNow())
+        console.log(color)
+
+        return (
+            <div className="notes" key={order.id}>
+                <h2 className="table"> Mesa {order.table}</h2>
+                <p> Meserx: {order.waiter}</p>
+
+                    {order.items.map(product => {
+                        return (
+                            <div className="products-on-note" key={uuidv4()} >
+                            <ul className="note-ul">
+                                <li className="product-name">{product.item}</li>
+                            </ul>
+                                <p className="product-quantity">{product.quantity}</p>
+                            </div>
+                        )
+                    })}
+                    
+                <button className="green" onClick={() => {console.log(order); updateOrder(order.id)}}>Orden lista!</button>
+            </div>
+        )
+    })
+
+    // breakpoints for responsive CSS Masonry
+    const breakpointColumnsObj = {
+        default: 3,
+        1100: 3,
+        700: 2,
+        500: 1
+      };
+    
+
+    if (incoming.length <=0) {
+        return (
+            <div className="no-orders-message-container">
+                <div className="no-orders-message"> Aún no hay ordenes :-) </div> 
+            </div>
+        )
+    } else{
     return(
-        <div className="note-container">
-            {incoming.map(order => {
-                return (
-                    <div className="notes" key={order.id}>
-                        <h2 className="table"> Mesa {order.table}</h2>
-                        <p> Meserx: {order.waiter}</p>
-                        {order.items.map(product => {
-                            return (
-                                <div key={uuidv4()} >
-                                    <p>{product.item}</p>
-                                    <p>{product.quantity}</p>
-                                </div>
-                            )
-                        })}
-                        <button className="green" onClick={() => {console.log(order); updateOrder(order.id)}}>Orden lista!</button>
-                    </div>
-                )
-            })}
+        <div className='container'>
+            <Masonry
+                breakpointCols={breakpointColumnsObj}
+                className="my-masonry-grid"
+                columnClassName="my-masonry-grid_column">
+                    {incomingOrders}
+            </Masonry>
         </div>
     )
+}
 }
 
 export default Note

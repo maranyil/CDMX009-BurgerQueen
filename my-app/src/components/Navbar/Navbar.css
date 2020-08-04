@@ -1,6 +1,6 @@
 .topbar {
     height: 100px;
-    width: 110%;  
+    width: 100%;  
     background-color: #ffb13b;
 
     margin-top: -21px;
@@ -15,3 +15,6 @@
     margin-top: 7px;
     padding-top: 5px;
 }
+
+
+
