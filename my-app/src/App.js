@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import NewOrder from './components/MenuSelector'
 import IncomingOrder from './components/KitchenNotes'
-import Ready from './components/Ready'
+import Ready from './components/ReadyToServe'
 import BMenu from './components/Navbar/BMenu';
 import Navbar from './components/Navbar/Navbar';
 import './firebase'
