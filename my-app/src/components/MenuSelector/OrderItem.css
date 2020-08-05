@@ -1,36 +1,31 @@
 .order-list-container{
-    display: flex; 
-    flex-direction: row;
+    display: grid; 
+    grid-template-columns: 3fr 1.2fr 1.2fr 1fr 1fr; 
     align-items: center;
 }
 
 h3{
     font-size: 18px; 
     font-weight: normal;
-    width: 160px; 
 }
 
 h4{
     font-size: 18px; 
     font-weight: normal;
-    width: 80px; 
 }
 
 input[type=number]{
 
     font-size: 18px; 
-    width: 25px; 
-    height: 20px; 
-    margin-right: 35px;
-    padding-left: 15px;
+    width: 40px; 
+    height: 30px; 
     border: none; 
     border-radius: 2px;
-
+    padding-left: 15px; 
 }
 
 .trash{
-
-    width: 6%;
+    width: 70%;
     height: auto; 
-
+    padding: 0px 0px 10px 20px; 
 }

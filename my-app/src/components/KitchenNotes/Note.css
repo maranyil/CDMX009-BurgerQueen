@@ -24,7 +24,7 @@
     background-color: #DDFC84; 
 }
 
-.red-note{ 
+.orange-note{ 
     width: 300px; 
     border-radius: 9px;
     text-align: center; 
@@ -34,6 +34,18 @@
     margin-bottom: 30px; 
     background-color: #FCA884; 
 }
+
+.red-note{ 
+    width: 300px; 
+    border-radius: 9px;
+    text-align: center; 
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px 20px 0px; 
+    margin-bottom: 30px; 
+    background-color: rgb(212, 120, 120); 
+}
+
 
 h2.table{
     font-size: 28px; 
