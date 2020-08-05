@@ -1,56 +1,51 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect} from 'react'
 import { db, auth } from '../../firebase'
 import { v4 as uuidv4 } from 'uuid'
 import Masonry from 'react-masonry-css'
-import './Note.css'
+// import '../KitchenNotes/Note.css'
 
-function KitchenNotes(){
+function Ready () {
 
-    const [ incoming, setIncoming ] = useState([])
+    const [ready, setReady] = useState([])
 
-    const date = new Date()
-    const today = [date.getDate(), date.getMonth(), date.getFullYear()].join('/')
-
-    console.log(today)
-
-    const getOrders = () =>{
+    const getDoneOrders = () => {
         return db
         .collection('orders')
-        .where("status", "==", "in progress")
+        .where("status", "==", "done")
         .orderBy('date', 'desc')
         .onSnapshot((querySnapshot) => {
             const docs = []
             querySnapshot.forEach((doc) => {
                 docs.push({...doc.data(), id: doc.id})
             })
-            setIncoming(docs)
+            setReady(docs)
         })
-    } 
+    }
 
     useEffect(() => {
-        let unsubscribe = getOrders()
+        let unsubscribe = getDoneOrders()
 
         return () => {
             unsubscribe()
         }
-      }, []);
+    }, [])
 
-    const updateOrder = (id) => {
-        db    
+    //  deletes the order from firestore 
+    const deleteOrder = (id) => {
+        db
         .collection('orders')
         .doc(id)
-        .update({
-            status: "done"
-        })
+        .delete()
         .then(() => {
-            alert('un meserx será notificado :)')
+            alert('Pedidos actualizados')
+            console.log(id)
         })
-        .catch(() =>{
-            alert('Ocurrió un error, intentalo de nuevo en un momento')
-        })   
+        .catch(() => {
+            alert('Ocurrió un error, intentalo de nuevo en un momento...')
+        })
     }
 
-    let incomingOrders = incoming.map( order => {
+    let readyOrders = ready.map( order => {
         let difference = Date.now() -  +order.date.toDate() // miliseconds between now and when the order was created
         let color = Math.round((difference/1000)/60)
 
@@ -75,26 +70,25 @@ function KitchenNotes(){
                     
                 <button 
                     className={color <= 5 ? "green" : color <=10 ? "orange" : "red"}
-                    onClick={() => {console.log(order); updateOrder(order.id)}}>
-                        Orden lista!
+                    onClick={() => {console.log(order); deleteOrder(order.id)}}>
+                        Orden entregada!
                 </button>
             </div>
         )
     })
 
-    // breakpoints for responsive CSS Masonry
-    const breakpointColumnsObj = {
+     // breakpoints for responsive CSS Masonry
+     const breakpointColumnsObj = {
         default: 3,
         1100: 3,
         700: 2,
         500: 1
       };
-    
 
-    if (incoming.length <=0) {
+      if (ready.length <=0) {
         return (
             <div className="no-orders-message-container">
-                <div className="no-orders-message"> Aún no hay ordenes :-) </div> 
+                <div className="no-orders-message"> Aún no hay pedidos para entregar :-) </div> 
             </div>
         )
     } else{
@@ -104,11 +98,11 @@ function KitchenNotes(){
                 breakpointCols={breakpointColumnsObj}
                 className="my-masonry-grid"
                 columnClassName="my-masonry-grid_column">
-                    {incomingOrders}
+                    {readyOrders}
             </Masonry>
         </div>
     )
 }
 }
 
-export default KitchenNotes
+export default Ready; 

@@ -13,21 +13,22 @@ import './index.css'
 
 function MenuSelector() {
     //  nodes 
-    const initialOrder = {
+    const initialValues = {
         table: '',
         items: [],
-        waiter: 'Keupa'
+        waiter: 'Keupa',
+        date: new Date(), 
+        status: 'in progress'
     }
 
     const [tab, setTab] = useState('breakfast')
-    const [order, setOrder] = useState(initialOrder)
+    const [order, setOrder] = useState(initialValues)
 
     // functions 
-    // const reset = () => setOrder(intitalOrder)
-
+  
     const setTable = (table) => setOrder({ ...order, table})
 
-     //ads product to order
+     //adds product to order
     const addProduct = (product) => {        
         setOrder({
             ...order,
@@ -70,16 +71,12 @@ function MenuSelector() {
         })
     }
 
-    const saveOrder = (e) => {
-        e.preventDefault()
-        db
+    const saveOrder = async () => {
+        await db
         .collection('orders')
-        .add({
-            order
-        })
-        .then(()=>{
-            alert('Pedido enviado a cocina :)')
-        })
+        .add(order)
+        alert('pedido enviado a cocina')
+        setOrder({...initialValues})
     }
 
     const fullOrder = order.items.map(elem =>

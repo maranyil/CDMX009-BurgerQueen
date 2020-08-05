@@ -8,7 +8,6 @@ function Table ({tablenum, setTable}) {
                 onChange={ e => {
                     const table = e.target.value; 
                     setTable(table)
-                    console.log(table)
                     } 
                 }
                 type="number" 

@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import NewOrder from './pages/NewOrder'
-import IncomingOrder from './pages/IncomingOrder'
 import Login from './pages/Login';
+import NewOrder from './components/MenuSelector'
+import IncomingOrder from './components/KitchenNotes'
+import Ready from './components/ReadyToServe'
 import BMenu from './components/Navbar/BMenu';
 import Navbar from './components/Navbar/Navbar';
 import './firebase'
@@ -18,7 +19,7 @@ function App() {
          <Route exact path = "/login" render={() => <Login />}/>
          <Route exact path = "/new-order" render={() => <NewOrder />}/>
          <Route exact path = "/incoming" render={() => <IncomingOrder />}/>
-
+         <Route exact path = "/ready" render={() => <Ready />}/>
         </Switch>
       </Router>
     </div>

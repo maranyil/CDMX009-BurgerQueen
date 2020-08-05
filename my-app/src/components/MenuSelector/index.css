@@ -15,15 +15,16 @@
     grid-area: menu; 
     position: relative; 
     border-radius: 20px;
-    width: 350px; 
+    width: 400px; 
     background-color: #FFFCFC;
-    padding-left: 5px; 
-    padding-top: 10px; 
+    padding: 10px 0px 10px 9px; 
 
 }
 
 .menu-parent{
-    margin: 20px 80px 0px 80px; 
+    width: 100vw;
+    height: 100%; 
+    padding: 30px 60px 30px 130px; 
 }
 
 .container{
@@ -38,16 +39,17 @@
 
 .order-container{
     float:left; 
-    margin: 0px 0px 0px 50px; 
+    margin: 0px 0px 0px 0px; 
 }
 
 .order-note{ 
-    width: 400px;
+    width: 560px;
     height: auto; 
     border-radius: 20px; 
-    background-color: #FFCF87; 
+    background-color: #DED2FF; 
     grid-area: order; 
-    padding: 5px 20px 20px 20px; 
+    padding: 30px 20px 20px 35px; 
+    margin-left: 60px; 
 }
 
 .total{
@@ -59,6 +61,7 @@
 
 h1{
     font-size: 28px; 
+    font-family: 'Montserrat', sans-serif; 
     text-align: center; 
     margin-right: 10px; 
 }
@@ -76,16 +79,17 @@ h1{
 }
 
 input[type=number].table-number{
-    font-family: 'Montserrat', sans-serif; 
     font-weight: bolder;
-    width: 30px !important; 
-    height: 25px !important; 
+    width: 45px !important; 
+    height: 30px !important; 
     font-size: 25px; 
+    padding-left: 14px; 
 }
 
 .titles-container{
-    display: flex; 
-    flex-direction: row;    
+    display: grid; 
+    grid-template-columns: 3fr 1.2fr 1.2fr 1fr 1fr; 
+    align-items: center;   
 }
 
 h4.bold{
