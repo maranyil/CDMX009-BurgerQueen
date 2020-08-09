@@ -6,13 +6,15 @@ import IncomingOrder from './components/KitchenNotes'
 import Ready from './components/ReadyToServe'
 import BMenu from './components/Navbar/BMenu';
 import Navbar from './components/Navbar/Navbar';
+
 import './firebase'
 
 function App() {
 
   return (
+    
     <div className = "App">
-       <Router>
+      <Router>
         <Navbar />
         <BMenu />
         <Switch>

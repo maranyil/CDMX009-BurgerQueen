@@ -127,6 +127,10 @@ into a crossmark. */
   font-size: 30px;
 }
 
+li:hover{
+  color: #ffffdb !important;
+}
+
 /* slide it from the left */
 .menuToggle input:checked ~ ul
 {

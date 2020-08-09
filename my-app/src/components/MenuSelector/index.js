@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import breakfastData from '../../data/breakfastData'
 import restOfTheDayData from '../../data/restOfTheDayData'
@@ -25,18 +26,20 @@ function MenuSelector() {
     const [order, setOrder] = useState(initialValues)
 
     // functions 
-  
     const setTable = (table) => setOrder({ ...order, table})
 
-     //adds product to order
-    const addProduct = (product) => {        
-        setOrder({
-            ...order,
-            items: [
-                ...order.items,
-                {...product, quantity: 1}
-            ]
-        })
+    const addProduct = (product) => {
+        if (order.items.find(item => item.id === product.id)) {
+           // order.items.map( item => item.id === product.id )
+        } else{
+            setOrder({
+                ...order,
+                items: [
+                    ...order.items,
+                    {...product, quantity: 1}
+                ]
+            })
+        }
     }
 
     const deleteItem = (id) => {
@@ -72,11 +75,15 @@ function MenuSelector() {
     }
 
     const saveOrder = async () => {
-        await db
-        .collection('orders')
-        .add(order)
-        alert('pedido enviado a cocina')
-        setOrder({...initialValues})
+        if(order.items.length === 0){
+            alert('Aún no hay productos en la orden')
+        }else {
+            await db
+            .collection('orders')
+            .add(order)
+            alert("Pedido enviado a cocina")
+            setOrder({...initialValues})
+        }
     }
 
     const fullOrder = order.items.map(elem =>
@@ -95,7 +102,6 @@ function MenuSelector() {
     const addTotal = order.items.reduce((result, item) => {
         return result + item.price * item.quantity
     }, 0)
-
 
     return(
     <div className="menu-parent">
