@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Table ({tablenum, setTable}) {
+function Table ({setTable}) {
     return(
         <>
             <h1>Mesa</h1>

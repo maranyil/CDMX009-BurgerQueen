@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import breakfastData from '../../data/breakfastData'
 import restOfTheDayData from '../../data/restOfTheDayData'
@@ -8,8 +9,12 @@ import Titles from './Titles'
 import Table from './Table'
 import Button from '../Button'
 import { v4 as uuidv4 } from 'uuid'
-import { db } from '../../firebase'
+import { toast, Slide } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { db, auth } from '../../firebase'
 import './index.css'
+
+toast.configure()
 
 function MenuSelector() {
     //  nodes 
@@ -25,18 +30,23 @@ function MenuSelector() {
     const [order, setOrder] = useState(initialValues)
 
     // functions 
-  
-    const setTable = (table) => setOrder({ ...order, table})
+    const setTable = (table) => { 
+        table = parseInt(table)
+        setOrder({ ...order, table })
+    }
 
-     //adds product to order
-    const addProduct = (product) => {        
-        setOrder({
-            ...order,
-            items: [
-                ...order.items,
-                {...product, quantity: 1}
-            ]
-        })
+    const addProduct = (product) => {
+        if (order.items.find(item => item.id === product.id)) {
+           // order.items.map( item => item.id === product.id )
+        } else{
+            setOrder({
+                ...order,
+                items: [
+                    ...order.items,
+                    {...product, quantity: 1}
+                ]
+            })
+        }
     }
 
     const deleteItem = (id) => {
@@ -45,14 +55,6 @@ function MenuSelector() {
             items: order.items.filter(order => order.id !== id )            
         })
     }
-
-    const restOtdComponents = restOfTheDayData.map(elem =>
-        <MenuElement addProduct={addProduct} data={elem} key={elem.id} />
-    )
-
-    const breakfastComponents = breakfastData.map(elem =>
-        <MenuElement addProduct={addProduct} data={elem} key={elem.id}/>
-    )
 
     const addQuantity = (id, quantity) => {
         const newItems = order.items.map((item) => {
@@ -71,31 +73,59 @@ function MenuSelector() {
         })
     }
 
-    const saveOrder = async () => {
-        await db
-        .collection('orders')
-        .add(order)
-        alert('pedido enviado a cocina')
-        setOrder({...initialValues})
-    }
-
-    const fullOrder = order.items.map(elem =>
-        <OrderItem
-            item={elem.item} 
-            price={elem.price} 
-            totalp={elem.price * elem.quantity}
-            key={uuidv4()} 
-            id={elem.id} 
-            quantity={elem.quantity}
-            deleteItem={deleteItem} 
-            addQuantity={addQuantity} 
-        />
-    )
-
     const addTotal = order.items.reduce((result, item) => {
         return result + item.price * item.quantity
     }, 0)
 
+    const saveOrder = async() =>{
+        if(order.items.length >0 && order.table <= 0){
+            toast.warn('Por favor asigna la mesa', {
+                className: "rounder-edges",
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: true,
+                transition: Slide
+                });
+        }else if(order.items.length === 0 && order.table >= 1){
+            toast.warn('Agrega al menos un producto a la orden 🍔', {
+                className: "rounder-edges",
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: true,
+                transition: Slide
+                });
+        }else if (order.items.length === 0 && order.table <= 0){
+            toast.warn('Asigna la mesa y productos a la orden 🍔🍟', {
+                className: "rounder-edges",
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: true,
+                transition: Slide
+                });
+        }else{
+            await db
+            .collection('orders')
+            .add(order)
+            setOrder({...initialValues})
+            toast.success('Pedido enviado a cocina! ✨', {
+                className: "rounder-edges",
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: true,
+                transition: Slide
+                });
+        }
+    }
+
+    // prints the lunch components 
+    const restOtdComponents = restOfTheDayData.map(elem =>
+        <MenuElement addProduct={addProduct} data={elem} key={elem.id} />
+    )
+    
+    // prints the breakfast components
+    const breakfastComponents = breakfastData.map(elem =>
+        <MenuElement addProduct={addProduct} data={elem} key={elem.id}/>
+    )
 
     return(
     <div className="menu-parent">
@@ -117,7 +147,18 @@ function MenuSelector() {
                 <Table setTable={setTable} />
             </div> 
             <Titles /> 
-            {fullOrder}
+            { order.items.length === 0 ? ( <div className="center-align"> No hay productos en la orden</div> ) : ( order.items.map(elem =>
+                <OrderItem
+                    item={elem.item} 
+                    price={elem.price} 
+                    totalp={elem.price * elem.quantity}
+                    key={uuidv4()} 
+                    id={elem.id} 
+                    quantity={elem.quantity}
+                    deleteItem={deleteItem} 
+                    addQuantity={addQuantity} 
+                />
+            ) )}
             <p className="total">Total: ${addTotal}.00</p>
             <div className="center">
                 <Button 
