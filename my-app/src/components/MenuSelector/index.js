@@ -8,7 +8,7 @@ import Titles from './Titles'
 import Table from './Table'
 import Button from '../Button'
 import { v4 as uuidv4 } from 'uuid'
-import { db, auth } from '../../firebase'
+import { db } from '../../firebase'
 import './index.css'
 
 function MenuSelector() {

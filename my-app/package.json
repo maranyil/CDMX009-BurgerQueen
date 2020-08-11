@@ -11,9 +11,11 @@
     "firebase": "^7.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-masonry-component": "^6.2.1",
+    "react-masonry-css": "^1.0.14",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "reactfire": "^2.0.3"
+    "reactfire": "^2.0.0-alpha.3"
   },
   "scripts": {
     "start": "react-scripts start",

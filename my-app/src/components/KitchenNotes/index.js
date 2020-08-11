@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { db, auth } from '../../firebase'
+import { db } from '../../firebase'
 import { v4 as uuidv4 } from 'uuid'
 import Masonry from 'react-masonry-css'
 import './Note.css'
