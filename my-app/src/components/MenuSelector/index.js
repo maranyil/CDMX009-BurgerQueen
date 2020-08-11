@@ -30,7 +30,10 @@ function MenuSelector() {
     const [order, setOrder] = useState(initialValues)
 
     // functions 
-    const setTable = (table) => setOrder({ ...order, table})
+    const setTable = (table) => { 
+        table = parseInt(table)
+        setOrder({ ...order, table })
+    }
 
     const addProduct = (product) => {
         if (order.items.find(item => item.id === product.id)) {
@@ -74,33 +77,41 @@ function MenuSelector() {
         return result + item.price * item.quantity
     }, 0)
 
-    const saveOrder = async () => {
-        if(order.items.length === 0){
-            toast.warn('Agrega productos a la orden', {
+    const saveOrder = async() =>{
+        if(order.items.length >0 && order.table <= 0){
+            toast.warn('Por favor asigna la mesa', {
                 className: "rounder-edges",
                 position: "top-center",
                 autoClose: 4000,
                 hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
                 transition: Slide
                 });
-        }else {
+        }else if(order.items.length === 0 && order.table >= 1){
+            toast.warn('Agrega al menos un producto a la orden 🍔', {
+                className: "rounder-edges",
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: true,
+                transition: Slide
+                });
+        }else if (order.items.length === 0 && order.table <= 0){
+            toast.warn('Asigna la mesa y productos a la orden 🍔🍟', {
+                className: "rounder-edges",
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: true,
+                transition: Slide
+                });
+        }else{
             await db
             .collection('orders')
             .add(order)
             setOrder({...initialValues})
-            toast.success('Pedido enviado a cocina', {
+            toast.success('Pedido enviado a cocina! ✨', {
                 className: "rounder-edges",
                 position: "top-center",
                 autoClose: 4000,
                 hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
                 transition: Slide
                 });
         }
