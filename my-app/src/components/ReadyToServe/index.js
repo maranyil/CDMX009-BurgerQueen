@@ -1,8 +1,11 @@
 import React, { useState, useEffect} from 'react'
 import { db, auth } from '../../firebase'
+import { toast, Slide } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { v4 as uuidv4 } from 'uuid'
 import Masonry from 'react-masonry-css'
-// import '../KitchenNotes/Note.css'
+
+toast.configure()
 
 function Ready () {
 
@@ -37,11 +40,30 @@ function Ready () {
         .doc(id)
         .delete()
         .then(() => {
-            alert('Pedidos actualizados')
-            console.log(id)
+            toast.success('Pedidos actualizados', {
+                className: "rounder-edges",
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                transition: Slide
+                });
         })
         .catch(() => {
-            alert('Ocurrió un error, intentalo de nuevo en un momento...')
+            toast.error('Ocurrió un error, inténtalo de nuevo en un momento', {
+                className: "rounder-edges",
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                transition: Slide
+                });
         })
     }
 

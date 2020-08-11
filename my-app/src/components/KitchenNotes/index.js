@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { db, auth } from '../../firebase'
 import { v4 as uuidv4 } from 'uuid'
+import { toast, Slide } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import Masonry from 'react-masonry-css'
 import './Note.css'
+
+toast.configure()
 
 function KitchenNotes(){
 
     const [ incoming, setIncoming ] = useState([])
-
-    const date = new Date()
-    const today = [date.getDate(), date.getMonth(), date.getFullYear()].join('/')
-
-    console.log(today)
 
     const getOrders = () =>{
         return db
@@ -22,6 +21,7 @@ function KitchenNotes(){
             const docs = []
             querySnapshot.forEach((doc) => {
                 docs.push({...doc.data(), id: doc.id})
+                console.log(docs)
             })
             setIncoming(docs)
         })
@@ -43,10 +43,30 @@ function KitchenNotes(){
             status: "done"
         })
         .then(() => {
-            alert('un meserx será notificado :)')
+            toast.success('Un meserx será notificado', {
+                className: "rounder-edges",
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                transition: Slide
+                });
         })
         .catch(() =>{
-            alert('Ocurrió un error, intentalo de nuevo en un momento')
+            toast.error('Ocurrió un error, inténtalo de nuevo en un momento', {
+                className: "rounder-edges",
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                transition: Slide
+                });
         })   
     }
 
@@ -89,7 +109,6 @@ function KitchenNotes(){
         700: 2,
         500: 1
       };
-    
 
     if (incoming.length <=0) {
         return (

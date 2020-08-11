@@ -9,8 +9,12 @@ import Titles from './Titles'
 import Table from './Table'
 import Button from '../Button'
 import { v4 as uuidv4 } from 'uuid'
+import { toast, Slide } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { db, auth } from '../../firebase'
 import './index.css'
+
+toast.configure()
 
 function MenuSelector() {
     //  nodes 
@@ -49,14 +53,6 @@ function MenuSelector() {
         })
     }
 
-    const restOtdComponents = restOfTheDayData.map(elem =>
-        <MenuElement addProduct={addProduct} data={elem} key={elem.id} />
-    )
-
-    const breakfastComponents = breakfastData.map(elem =>
-        <MenuElement addProduct={addProduct} data={elem} key={elem.id}/>
-    )
-
     const addQuantity = (id, quantity) => {
         const newItems = order.items.map((item) => {
             if (item.id === id) {
@@ -74,34 +70,51 @@ function MenuSelector() {
         })
     }
 
+    const addTotal = order.items.reduce((result, item) => {
+        return result + item.price * item.quantity
+    }, 0)
+
     const saveOrder = async () => {
         if(order.items.length === 0){
-            alert('Aún no hay productos en la orden')
+            toast.warn('Agrega productos a la orden', {
+                className: "rounder-edges",
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                transition: Slide
+                });
         }else {
             await db
             .collection('orders')
             .add(order)
-            alert("Pedido enviado a cocina")
             setOrder({...initialValues})
+            toast.success('Pedido enviado a cocina', {
+                className: "rounder-edges",
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                transition: Slide
+                });
         }
     }
 
-    const fullOrder = order.items.map(elem =>
-        <OrderItem
-            item={elem.item} 
-            price={elem.price} 
-            totalp={elem.price * elem.quantity}
-            key={uuidv4()} 
-            id={elem.id} 
-            quantity={elem.quantity}
-            deleteItem={deleteItem} 
-            addQuantity={addQuantity} 
-        />
+    // prints the lunch components 
+    const restOtdComponents = restOfTheDayData.map(elem =>
+        <MenuElement addProduct={addProduct} data={elem} key={elem.id} />
     )
-
-    const addTotal = order.items.reduce((result, item) => {
-        return result + item.price * item.quantity
-    }, 0)
+    
+    // prints the breakfast components
+    const breakfastComponents = breakfastData.map(elem =>
+        <MenuElement addProduct={addProduct} data={elem} key={elem.id}/>
+    )
 
     return(
     <div className="menu-parent">
@@ -123,7 +136,18 @@ function MenuSelector() {
                 <Table setTable={setTable} />
             </div> 
             <Titles /> 
-            {fullOrder}
+            { order.items.length === 0 ? ( <div className="center-align"> No hay productos en la orden</div> ) : ( order.items.map(elem =>
+                <OrderItem
+                    item={elem.item} 
+                    price={elem.price} 
+                    totalp={elem.price * elem.quantity}
+                    key={uuidv4()} 
+                    id={elem.id} 
+                    quantity={elem.quantity}
+                    deleteItem={deleteItem} 
+                    addQuantity={addQuantity} 
+                />
+            ) )}
             <p className="total">Total: ${addTotal}.00</p>
             <div className="center">
                 <Button 

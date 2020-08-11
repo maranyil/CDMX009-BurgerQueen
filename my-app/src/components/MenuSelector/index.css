@@ -97,13 +97,28 @@ h4.bold{
     justify-content: center;
 }
 
-h4.prod{
-    width: 150px;  
-}
-h4.cant{
-    width: 75px; 
+.rounder-edges{
+    border-radius: 4px; 
+    text-align: center; 
 }
 
-h4.unit{
-    width: 75px;  
+.center-align{
+    text-align: center;
+    font-size: 18px; 
+    margin-top: 40px; 
+}
+
+hr.solid{   
+    border: none;
+    background-color: #170000;
+    color: #170000;
+    height: 2px;
+    margin: -5px 45px 5px 25px; 
+}
+
+.plusminus{
+    border: none; 
+    background: transparent; 
+    font-size: 25px; 
+    margin: 5px; 
 }
