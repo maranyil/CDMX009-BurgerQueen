@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import Masonry from 'react-masonry-css'
 import './Note.css'
 
+// needed for toasts 
 toast.configure()
 
 function KitchenNotes(){
