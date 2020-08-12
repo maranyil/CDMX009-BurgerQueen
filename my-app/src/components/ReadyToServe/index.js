@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react'
-import { db, auth } from '../../firebase'
+import { db } from '../../firebase'
 import { toast, Slide } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { v4 as uuidv4 } from 'uuid'

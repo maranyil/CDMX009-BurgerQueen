@@ -1,5 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
+import Logout from '../Logout'
 import './Navbar.css'
 
 const changeTitle = (pathname) => {
@@ -10,6 +11,8 @@ const changeTitle = (pathname) => {
             return 'Incoming';
         case '/ready':
             return 'Ready';
+        default:
+            return ':-)'
     }
 }
 
@@ -18,6 +21,7 @@ function Navbar() {
     return(
         <div className= "topbar">
             <h1>Burger Queen / <span className="white"> {changeTitle(pathname)} </span> </h1>
+            <Logout /> 
         </div>
     )
 }

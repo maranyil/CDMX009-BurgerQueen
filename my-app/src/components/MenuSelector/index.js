@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import breakfastData from '../../data/breakfastData'
 import restOfTheDayData from '../../data/restOfTheDayData'
 import MenuElement from './MenuElement'
@@ -11,17 +11,22 @@ import Button from '../Button'
 import { v4 as uuidv4 } from 'uuid'
 import { toast, Slide } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { db, auth } from '../../firebase'
+import { db } from '../../firebase'
+import { AuthContext } from '../../Auth'
 import './index.css'
 
 toast.configure()
 
 function MenuSelector() {
+
+    const { currentUser } = useContext(AuthContext)
+    let currentWaiter = currentUser.displayName
+
     //  nodes 
     const initialValues = {
         table: '',
         items: [],
-        waiter: 'Keupa',
+        waiter: currentWaiter,
         date: new Date(), 
         status: 'in progress'
     }

@@ -15,9 +15,6 @@ function BMenu(props) {
 
           <ul className="menu">
             <h1> Orders </h1>
-            <Link to = "login">
-              <li>Login</li>
-            </Link>
             <Link to = "new-order">
               <li>New</li>
             </Link>

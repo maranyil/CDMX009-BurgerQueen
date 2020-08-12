@@ -1,10 +1,6 @@
-import React, { useState }from 'react'
+import React from 'react'
 import trash from '../../img/trash.svg'
 import './OrderItem.css'
-
-function initialCount () {
-    return 1 
-}
 
 function OrderItem ({item, price, id, deleteItem, quantity, addQuantity, totalp}) {
 
