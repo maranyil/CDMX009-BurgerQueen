@@ -9,12 +9,14 @@ const Forms = ({ history }) => {
 
   const handleSignUp = useCallback(async event => {
     event.preventDefault();
-    const { email, password, username } = event.target.elements;
+    const { email, password } = event.target.elements;
     try {
       await auth
       .signInWithEmailAndPassword(email.value, password.value)
-      .then(() => {
+      .then((result) => {
+        console.log(result)
         history.push("/new-order")
+
       })
     } catch (err) {
       alert(err);

@@ -21,7 +21,7 @@ function Navbar() {
     return(
         <div className= "topbar">
             <h1>Burger Queen / <span className="white"> {changeTitle(pathname)} </span> </h1>
-            <Logout /> 
+            <Logout />
         </div>
     )
 }

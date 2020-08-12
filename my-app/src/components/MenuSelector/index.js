@@ -19,8 +19,8 @@ toast.configure()
 
 function MenuSelector() {
 
-    const { currentUser } = useContext(AuthContext)
-    let currentWaiter = currentUser.displayName
+    const user = useContext(AuthContext)
+    let currentWaiter = user.currentUser.displayName
 
     //  nodes 
     const initialValues = {
