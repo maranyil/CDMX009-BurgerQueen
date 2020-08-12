@@ -20,8 +20,8 @@ const Forms = ({ history }) => {
       .then(() => {
         history.push("/new-order")
       })
-    } catch (error) {
-      alert(error);
+    } catch (err) {
+      alert(err);
     }
   }, [history]);
 
