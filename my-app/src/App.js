@@ -14,7 +14,7 @@ function App() {
       <AuthProvider>
         <Router>
           <Switch>
-          <Route exact path = "/login" render={() => <Login />}/>
+          <Route exact path = "/" render={() => <Login />}/>
             <PrivateRoute exact path = "/new-order" render={() => <NewOrder />}/>
             <PrivateRoute exact path = "/incoming" render={() => <IncomingOrder />}/>
             <PrivateRoute exact path = "/ready" render={() => <Ready />}/>

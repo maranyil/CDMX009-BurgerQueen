@@ -92,7 +92,7 @@ function Ready () {
                     
                 <button 
                     className={color <= 5 ? "green" : color <=10 ? "orange" : "red"}
-                    onClick={() => {console.log(order); deleteOrder(order.id)}}>
+                    onClick={() => { deleteOrder(order.id) }}>
                         Orden entregada!
                 </button>
             </div>

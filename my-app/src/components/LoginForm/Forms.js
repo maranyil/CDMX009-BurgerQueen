@@ -62,7 +62,7 @@ const Forms = ({ history }) => {
             className="btn"
             type="submit"
           >
-              Sign Up
+              Sign In
           </button>
       </form>
     </div>

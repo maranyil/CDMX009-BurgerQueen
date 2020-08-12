@@ -21,7 +21,6 @@ function KitchenNotes(){
             const docs = []
             querySnapshot.forEach((doc) => {
                 docs.push({...doc.data(), id: doc.id})
-                console.log(docs)
             })
             setIncoming(docs)
         })
@@ -95,7 +94,7 @@ function KitchenNotes(){
                     
                 <button 
                     className={color <= 5 ? "green" : color <=10 ? "orange" : "red"}
-                    onClick={() => {console.log(order); updateOrder(order.id)}}>
+                    onClick={() => {updateOrder(order.id)}}>
                         Orden lista!
                 </button>
             </div>
