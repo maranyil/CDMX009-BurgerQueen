@@ -1,8 +1,9 @@
 import React, { useCallback, useContext } from 'react'
 import { withRouter, Redirect } from 'react-router'
 import { AuthContext } from '../../Auth'
-import LogoBQ from '../../img/LogoBQ.png'
+import LogoBQ from '../../img/LogoBQ.svg'
 import { auth } from '../../firebase'
+import './Forms.css'
 
 const Forms = ({ history }) => {
 
@@ -11,12 +12,7 @@ const Forms = ({ history }) => {
     const { email, password, username } = event.target.elements;
     try {
       await auth
-      .createUserWithEmailAndPassword(email.value, password.value)
-      .then((snap) => {
-        snap.user.updateProfile({
-          displayName: username.value 
-        });
-      })
+      .signInWithEmailAndPassword(email.value, password.value)
       .then(() => {
         history.push("/new-order")
       })
@@ -32,24 +28,43 @@ const Forms = ({ history }) => {
   }
 
   return (
-    <div className="forms-container">
+    <>
+    <div className="input-form"
+    style={
+      { backgroundColor: '#B8AAE0 !important'}
+  }
+    >
+      <img
+        className="bq-logo"
+        src={LogoBQ}
+        alt="Logo Burger Queen" />
       <h1>Inicio de sesión</h1>
-      <form onSubmit={handleSignUp}>
-      <label>
-          Username
-          <input name="username" type="text" placeholder="Username" />
-        </label>
-        <label>
-          Email
-          <input name="email" type="email" placeholder="Email" />
-        </label>
-        <label>
-          Password
-          <input name="password" type="password" placeholder="Password" />
-        </label>
-        <button type="submit">Sign Up</button>
+    
+      <form 
+        onSubmit={handleSignUp}
+        className="form-container">
+          <input 
+            className="inputf"
+            name="email" 
+            type="email" 
+            placeholder="Email" />
+
+          <input 
+            className="inputf"
+            name="password" 
+            type="password" 
+            placeholder="Password" 
+            />
+
+          <button 
+            className="btn"
+            type="submit"
+          >
+              Sign Up
+          </button>
       </form>
     </div>
+    </>
   );
 };
 
