@@ -1,0 +1,30 @@
+.topbar {
+    display: flex; 
+    justify-content: center;
+    height: 100px;
+    width: 100%;  
+    background-color: #B8AAE0;
+    margin-top: -21px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px; 
+}
+
+.topbar h1 {
+    font-size: 35px;
+    font-weight: normal; 
+    margin-top: 7px;
+    padding-top: 5px;
+}
+
+.white{
+    font-weight: bold; 
+    color:  #ffffdb !important; 
+}
+
+.logout{
+    width: 2.3%;
+    height: auto; 
+}
+
+

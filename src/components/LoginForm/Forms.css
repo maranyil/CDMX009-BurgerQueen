@@ -1,0 +1,48 @@
+.input-form{
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    background: #B8AAE0;
+    width: 100vw;
+    height: 100vh; 
+	overflow:hidden;
+    position:relative; 
+    align-items:center; 
+}
+
+.form-container{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+}
+
+.bq-logo{
+    width: 15%;
+    height: auto;  
+}
+
+.inputf {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0px 10px 0px 10px;
+    margin-bottom: 25px; 
+    border-radius: 12px;
+    border-style: none;
+    height: 35px;
+    width: 300px;
+    font-size: 18px; 
+}
+
+button.btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;;
+    font-weight: bold; 
+    width: 150px; 
+    height: 50px; 
+    border: 0; 
+    border-radius: 15px;
+    background-color: #C6B3FD;
+    box-shadow: -3px 6px rgb(174, 156, 223);
+    margin-left: auto;
+    margin-right: auto;
+}

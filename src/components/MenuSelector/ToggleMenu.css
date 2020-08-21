@@ -1,0 +1,18 @@
+.toggle-container{
+
+    display: flex; 
+    align-items: center; 
+    width: 400px;
+    padding-bottom: 20px; 
+    height: auto; 
+    justify-content: space-between;
+    
+}
+
+button.toggle{
+    font-size: 25px;
+    width: 192px;  
+    height: 58px; 
+    border: 0; 
+    border-radius: 16px;
+}

@@ -1,0 +1,59 @@
+.beverage{
+    
+    display:flex; 
+    flex-direction: column;
+
+    margin: 10px; 
+    width: 170px; 
+    height: 170px; 
+
+    align-items: center;
+    
+    border-radius: 25px; 
+
+    background: #87D5C2;
+
+    font-family: 'Montserrat', sans-serif; 
+
+    overflow: hidden;
+}
+
+.meal{
+    
+    display:flex; 
+    flex-direction: column;
+
+    margin: 10px; 
+    width: 170px; 
+    height: 170px; 
+
+    align-items: center;
+    
+    border-radius: 25px; 
+
+    background: #FFCF87;
+
+    font-family: 'Montserrat', sans-serif; 
+
+    overflow: hidden;
+}
+
+img{
+    width: 60%; 
+    height: 60%;  
+
+    margin: 5px 0px 0px 0px; 
+}
+
+h2{
+    margin: 0px 0px 0px 0px; 
+
+    font-size: 17px; 
+    font-weight: bold;
+}
+
+p{
+    margin: 5px 0px 10px 0px; 
+
+    font-size: 17px; 
+}
