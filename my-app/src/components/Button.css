@@ -1,0 +1,56 @@
+button.yellowbtn{
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;;
+    font-weight: bold; 
+    width: 150px; 
+    height: 50px; 
+    border: 0; 
+    border-radius: 15px;
+    background-color: #C6B3FD;
+    box-shadow: -3px 6px rgb(174, 156, 223);
+    justify-content: center; 
+}
+
+button.green{
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    margin: 12px 0px 6px 0px; 
+    font-weight: bold; 
+    width: 150px; 
+    height: 50px; 
+    border: 0; 
+    border-radius: 15px;
+    background-color: #AFD14E;
+    box-shadow: -3px 6px rgb(148, 194, 23); 
+}
+
+button.orange{
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    margin: 12px 0px 6px 0px; 
+    font-weight: bold; 
+    width: 150px; 
+    height: 50px; 
+    border: 0; 
+    border-radius: 15px;
+    background-color: rgb(248, 138, 87);
+    box-shadow: -3px 6px rgb(252, 125, 66); 
+}
+
+button.red{
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    margin: 12px 0px 6px 0px; 
+    font-weight: bold; 
+    width: 150px; 
+    height: 50px; 
+    border: 0; 
+    border-radius: 15px;
+    background-color: #DC6363;
+    box-shadow: -3px 6px  rgb(219, 73, 73); 
+}
+

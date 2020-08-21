@@ -1,0 +1,124 @@
+*{
+    color: #170000; 
+}
+
+.toggle-btn{
+    display: flex; 
+    justify-content: center;
+    align-content: center;
+    grid-area: toggle; 
+}
+
+.items-container{
+    display: flex;
+    flex-wrap: wrap;
+    grid-area: menu; 
+    position: relative; 
+    border-radius: 20px;
+    width: 400px; 
+    background-color: #FFFCFC;
+    padding: 10px 0px 10px 9px; 
+
+}
+
+.menu-parent{
+    width: 100vw;
+    height: 100%; 
+    padding: 30px 60px 30px 130px; 
+}
+
+.container{
+    margin-bottom: 20px; 
+}
+
+.menu-container{
+    display:flex; 
+    flex-direction: column;
+    float:left;
+}
+
+.order-container{
+    float:left; 
+    margin: 0px 0px 0px 0px; 
+}
+
+.order-note{ 
+    width: 560px;
+    height: auto; 
+    border-radius: 20px; 
+    background-color: #DED2FF; 
+    grid-area: order; 
+    padding: 30px 20px 20px 35px; 
+    margin-left: 60px; 
+}
+
+.total{
+    font-size: 18px; 
+    font-weight: bold; 
+    text-align: right; 
+    padding: 35px; 
+}
+
+h1{
+    font-size: 28px; 
+    font-family: 'Montserrat', sans-serif; 
+    text-align: center; 
+    margin-right: 10px; 
+}
+
+.center{
+    display: flex; 
+    justify-content: center;
+}
+
+.table{
+    display:flex; 
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type=number].table-number{
+    font-weight: bolder;
+    width: 45px !important; 
+    height: 30px !important; 
+    font-size: 25px; 
+    padding-left: 14px; 
+}
+
+.titles-container{
+    display: grid; 
+    grid-template-columns: 3fr 1.2fr 1.2fr 1fr 1fr; 
+    align-items: center;   
+}
+
+h4.bold{
+    font-weight: bold; 
+    justify-content: center;
+}
+
+.rounder-edges{
+    border-radius: 4px; 
+    text-align: center; 
+}
+
+.center-align{
+    text-align: center;
+    font-size: 18px; 
+    margin-top: 40px; 
+}
+
+hr.solid{   
+    border: none;
+    background-color: #170000;
+    color: #170000;
+    height: 2px;
+    margin: -5px 45px 5px 25px; 
+}
+
+.plusminus{
+    border: none; 
+    background: transparent; 
+    font-size: 25px; 
+    margin: 5px; 
+}
